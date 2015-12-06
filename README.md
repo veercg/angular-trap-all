@@ -5,7 +5,7 @@
 This module has been inspired from **angular-tab-trap**,but it works even if the modal dialog contains form elements other than just input tags, like select tags or any other accessible elements.
 
 # Download
-** via Bower **
-'''
+**via Bower**
+```
     bower install angular-trap-all
-'''
+```
