@@ -1,0 +1,23 @@
+{
+  "name": "angular-tab-all",
+  "version": "1.0.0",
+  "description": "Angular module for tab trap",
+  "main": "angular-trap-all.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/veercg/angular-trap-all.git"
+  },
+  "keywords": [
+    "angular",
+    "tab",
+    "trap",
+    "modal",
+    "dialog"
+  ],
+  "author": "Veer Chandra <veer.cg@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/veercg/angular-trap-all/issues"
+  }
+}

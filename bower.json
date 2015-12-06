@@ -1,0 +1,28 @@
+{
+  "name": "angular-trap",
+  "description": "Angular module for tab trap",
+  "main": "angular-trap-all.js",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "keywords": [
+    "angular",
+    "tab",
+    "trap",
+    "modal",
+    "dialog"
+  ],
+  "authors": [
+    "Veer Chandra <veer.cg@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
