@@ -6,6 +6,6 @@ This module has been inspired from **angular-tab-trap**,but it works even if the
 
 # Download
 **via Bower**
-```
+```javascript
     bower install angular-trap-all
 ```
