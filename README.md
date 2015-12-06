@@ -22,12 +22,17 @@ bower install angular-trap-all --save
     'gui.trapAll'
     ]);
 ```
-3. And then use as either <trap-all> or <div trap-all></div>. And ofcourse specify trap start and end points in HTML. 
+3. And then use as either 
+```
+<trap-all> or <div trap-all></div>
+```
+And ofcourse specify trap start and end points in HTML, using data-trap attribute.
+
 ```html
 	<trap-all>
 
 	<div class="modal-header">
-		<button class="modal-header-close icon icon-size-sm icon-cross" ng-click="vm.closePopup()" **data-trap="start"** aria-label="Hit enter to close popup">
+		<button class="modal-header-close icon icon-size-sm icon-cross" ng-click="vm.closePopup()" data-trap="start" aria-label="Hit enter to close popup">
 		</button>
 		<span class="modal-header-title" ng-cloack>{{vm.popupTitle}}</span>
 	</div>
