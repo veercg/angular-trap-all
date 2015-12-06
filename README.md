@@ -22,9 +22,9 @@ bower install angular-trap-all --save
     'gui.trapAll'
     ]);
 ```
-3. And then use as either 
+3. And then use as either element or attribute type directive.
 ```
-<trap-all> or <div trap-all></div>
+ <trap-all></trap-all> or <div trap-all></div>
 ```
 And ofcourse specify trap start and end points in HTML, using data-trap attribute.
 
@@ -44,7 +44,7 @@ And ofcourse specify trap start and end points in HTML, using data-trap attribut
         <button type="button" class="btn btn-faint" ng-click="vm.closePopup()"  aria-label="Hit enter to close popup">
             Close
         </button>
-        <button type="button" class="btn btn-hero" **data-trap="end"** aria-label="Hit enter to save changes">Save changes</button>
+        <button type="button" class="btn btn-hero" data-trap="end" aria-label="Hit enter to save changes">Save changes</button>
     </div>
     
 	</trap-all>
