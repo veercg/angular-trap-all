@@ -22,11 +22,11 @@ bower install angular-trap-all --save
     'gui.trapAll'
     ]);
 ```
-3. And then use as either element or attribute type directive.
+3. Then use as either element or attribute type directive.
 ```
  <trap-all></trap-all> or <div trap-all></div>
 ```
-And ofcourse specify trap start and end points in HTML, using data-trap attribute.
+4. And ofcourse specify trap start and end points in HTML, using data-trap attribute.
 
 ```html
 	<trap-all>
