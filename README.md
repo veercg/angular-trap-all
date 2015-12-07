@@ -49,3 +49,5 @@ bower install angular-trap-all --save
     
 	</trap-all>
 ```
+# License
+**MIT**
