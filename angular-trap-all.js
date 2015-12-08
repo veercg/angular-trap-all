@@ -17,9 +17,9 @@
 
     return angular.module('gui.trapAll', []).directive('trapAll',trapAll);
 
-    trapAll.$inject = ['$timeout']
+    trapAll.$inject = [];
 
-    function trapAll($timeout) {
+    function trapAll() {
 
         return {
             restrict: 'AE',
@@ -34,10 +34,6 @@
             var elem = $element[0];           
             var focusStart = elem.querySelector('[data-trap = "start"]');
             var focusEnd = elem.querySelector('[data-trap = "end"]');
-
-             // $timeout(function() {
-             //    $element.focus();
-             // }, 0, true);
 
             angular.element(focusEnd).bind('keydown', tabHandler);
             angular.element(focusStart).bind('keydown', tabHandler);
