@@ -15,61 +15,68 @@
 }(this, function (angular) {
     'use strict';
 
-    return angular.module('gui.trapAll', []).directive('trapAll', [ function () {
+    return angular.module('gui.trapAll', []).directive('trapAll',trapAll);
+
+    trapAll.$inject = ['$timeout']
+
+    function trapAll($timeout) {
 
         return {
             restrict: 'AE',
-            template: '<div ng-transclude></div>',
-            transclude: true,
-            link: linkFunc
+            link: {
+                pre: angular.noop,
+                post: linkFunc
+            }
         };
+
         function linkFunc($scope, $element, $attributes){
 
-                    var focusLeader = document.querySelector('[data-trap = "start"]');
-                    var focusTrailer = document.querySelector('[data-trap = "end"]');
+            var elem = $element[0];           
+            var focusStart = elem.querySelector('[data-trap = "start"]');
+            var focusEnd = elem.querySelector('[data-trap = "end"]');
 
-                    focusLeader.focus();
-                    $element.css('position', 'relative');
+             // $timeout(function() {
+             //    $element.focus();
+             // }, 0, true);
 
-                    function tabForwardHandler(e) {
-                        var evt = e || window.event;
-                        var keyCode = evt.which || evt.keyCode;
+            angular.element(focusEnd).bind('keydown', tabHandler);
+            angular.element(focusStart).bind('keydown', tabHandler);
 
-                        if(keyCode === 9) { 
-                            if(!evt.shiftKey) { // TAB pressed without shift
-                                if(evt.preventDefault) {
-                                    evt.preventDefault();
-                                }
-                                else {
-                                    evt.returnValue = false;
-                                } 
+            function tabHandler(e) {
 
-                                focusLeader.focus();
-                            }                  
-                        }
+                var evt = e || window.event;
+                var keyCode = evt.which || evt.keyCode;
+
+                var dataTrapValue = evt.currentTarget.attributes['data-trap'].value;
+
+                if(keyCode === 9) { 
+
+                    if(dataTrapValue === "end") {
+                        if(!evt.shiftKey) { // TAB pressed without shift
+
+                            if(evt.preventDefault) {
+                                evt.preventDefault();
+                            }
+                            else {
+                                evt.returnValue = false;
+                            }                     
+                            focusStart.focus();
+                        }  
+                    } else if (dataTrapValue === "start") {
+
+                        if(evt.shiftKey) { // TAB pressed with shift
+                            if(evt.preventDefault) {
+                                evt.preventDefault();
+                            } else {
+                                evt.returnValue = false;
+                            }
+                            focusEnd.focus();
+                        }  
                     }
-                    angular.element(focusTrailer).bind('keydown', tabForwardHandler);
-
-                    function tabBackwardHandler(e) {
-                        var evt = e || window.event;
-                        var keyCode = evt.which || evt.keyCode;
-
-                        if(keyCode === 9) { 
-                            if(evt.shiftKey) { // TAB pressed with shift
-                                if(evt.preventDefault) {
-                                    evt.preventDefault();
-                                }
-                                else {
-                                    evt.returnValue = false;
-                                } 
-
-                                focusTrailer.focus();
-                            }                       
-                        }
-                    }
-
-                    angular.element(focusLeader).bind('keydown', tabBackwardHandler);
+                }                   
+            }
+            
         }
 
-    }]);
+    };
 }));
